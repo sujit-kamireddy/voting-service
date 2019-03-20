@@ -6,9 +6,15 @@ const app = express()
 app.use(bodyParser.json())
 
 await storage.init();
+const votesStoreKey = 'votes';
+
+app.get('/', async (req, res) => {
+  const votes = await storage.getItem(votesStoreKey);
+  res.send(votes);
+});
+
 app.post('/', async (req, res) => {
   try {
-    const votesStoreKey = 'votes';
     const votes = await storage.getItem(votesStoreKey);
 
     for (var key in Object.keys(req.body)) {
