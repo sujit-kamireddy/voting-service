@@ -10,5 +10,5 @@ COPY . .
 
 EXPOSE 8080
 
-#CMD ["npm", "start"]  
-CMD ["node", "--inspect=9229", "index.js"]
+CMD ["node", "index.js"]
+#CMD ["node", "--inspect=9229", "index.js"]
