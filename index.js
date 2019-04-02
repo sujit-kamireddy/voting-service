@@ -13,12 +13,12 @@ app.use(morgan('HTTP/:http-version :method :url :body :status'));
 await storage.init();
 const votesStoreKey = 'votes';
 
-app.get('/', async (req, res) => {
+app.get('/vote', async (req, res) => {
   const votes = await storage.getItem(votesStoreKey);
   res.send(votes);
 });
 
-app.post('/', async (req, res) => {
+app.post('/vote', async (req, res) => {
   try {
     const votes = await storage.getItem(votesStoreKey);
 
