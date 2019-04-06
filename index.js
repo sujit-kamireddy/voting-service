@@ -20,6 +20,13 @@ app.get('/vote', async (req, res) => {
 
 app.post('/vote', async (req, res) => {
   try {
+    /*
+      votes: {
+        'Skaffold': 1,
+        'Jib': 3,
+        'None of the Above': 0
+      }
+    */
     const votes = await storage.getItem(votesStoreKey);
 
     const voteNames = Object.keys(req.body);
