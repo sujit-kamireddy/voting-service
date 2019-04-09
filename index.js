@@ -29,8 +29,8 @@ app.post('/vote', async (req, res) => {
     */
     const votes = await storage.getItem(votesStoreKey);
 
-    const voteNames = Object.keys(req.body);
-    for (var name in voteNames) {
+    const postedVotes = Object.keys(req.body);
+    for (var name in postedVotes) {
       votes[name] = votes[name] ? votes[name] + 1 : 1;
     }
   
